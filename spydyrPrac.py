@@ -50,7 +50,7 @@ def palindromes(text):
             final_result = results[i]
     return final_result, final_result_length
 print (palindromes("adsgeegeegkkjjhdd"))
-'''
+
 #How to find first non repeated character of a given String?
 #s,w,i,s,s
 
@@ -69,3 +69,8 @@ def nonRepChar(string):
     return result
 
 print (nonRepChar("swiss"))
+'''
+def firstDupliLowestIndex(a):
+    a=[2,3,3,1,4,2]
+    for i, each in enumerate(a):
+        print (a[i])

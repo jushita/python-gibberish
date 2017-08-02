@@ -192,3 +192,28 @@ class practiceProg():
             largest = array[len(array)-1]
 
         print(smallest, largest)
+
+
+
+
+##Find duplicate in an array
+##example: [2,3,3,4,5,2]
+##answer will be 3. because the second index of 3 is less than the second index of 2.
+
+    def firstDupliLowestIndex(self, a):
+        new_dict = dict()
+        listOfindex = list()
+        result_index = 0
+        for i, each in enumerate(a):
+            new_dict[each] = 0
+        for key, value in new_dict.items():
+            for i, each in enumerate(a):
+                if key == a[i]:
+                    value += 1
+                    if value == 2:
+                        listOfindex.append(i)
+            new_dict[key] = value
+            for j, _each in enumerate(listOfindex):
+                if (listOfindex[j-1]>listOfindex[j]):
+                    result_index = listOfindex[j]
+        print(a[result_index])

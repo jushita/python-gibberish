@@ -241,3 +241,11 @@ class practiceProg():
         if all(value == 1 for value in new_dict.values()):
             print ("True")
         else: print ("False")
+
+    def isBinary(self, a):
+        a = list(a)
+        for i, each in enumerate(a):
+            if a[i]==1 or a[i]==0:
+                return True
+            else:
+                return False

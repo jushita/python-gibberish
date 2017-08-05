@@ -192,10 +192,6 @@ class practiceProg():
             largest = array[len(array)-1]
 
         print(smallest, largest)
-
-
-
-
 ##Find duplicate in an array
 ##example: [2,3,3,4,5,2]
 ##answer will be 3. because the second index of 3 is less than the second index of 2.
@@ -204,6 +200,11 @@ class practiceProg():
         new_dict = dict()
         listOfindex = list()
         result_index = 0
+        if len(a)==2:
+            if a[0]==a[1]:
+                print(a[0])
+            else:
+                print("-1")
         for i, each in enumerate(a):
             new_dict[each] = 0
         for key, value in new_dict.items():
@@ -213,7 +214,30 @@ class practiceProg():
                     if value == 2:
                         listOfindex.append(i)
             new_dict[key] = value
-            for j, _each in enumerate(listOfindex):
-                if (listOfindex[j-1]>listOfindex[j]):
-                    result_index = listOfindex[j]
-        print(a[result_index])
+        for j, _each in enumerate(listOfindex):
+            if (listOfindex[j-1]>listOfindex[j]):
+                print(a[listOfindex[j]])
+        if not listOfindex:
+            print("-1")
+
+#reverse a string
+    def revInt(self, a):
+        a = str (a)
+        print (a[::-1])
+
+#check if number is binary or not
+    def checkBin(self, a):
+        a = str (a)
+        a = list (a)
+        new_dict = dict()
+        for each in a:
+            new_dict[each] = 0
+        for key, value in new_dict.items():
+            if key == '0' or key == '1':
+                value = 1
+            else:
+                value = 2
+            new_dict[key] = value
+        if all(value == 1 for value in new_dict.values()):
+            print ("True")
+        else: print ("False")

@@ -249,3 +249,14 @@ class practiceProg():
                 return True
             else:
                 return False
+                break
+
+    #the sky is blue --> blue is sky
+
+    def revSent(self, a):
+        res = " "
+        line_split = a.split(" ")
+        line_split = line_split[::-1]
+        print (line_split)
+        res = " ".join(line_split)
+        print (res)

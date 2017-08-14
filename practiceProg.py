@@ -260,3 +260,53 @@ class practiceProg():
         print (line_split)
         res = " ".join(line_split)
         print (res)
+
+    def rotation(self, a, n):
+        d=list()
+        for i in range(1,a+1):
+            d.append(i)
+        str1 = ''.join(str(each) for each in d)
+        print(str1[n:]+ str1[:n])
+
+    def anargrams(self, a, b):
+        a = list(sorted(a))
+        b = list(sorted(b))
+        dict1 = dict()
+        dict2 = dict()
+        res1 = list()
+        res2 = list()
+        del_str1 = list()
+        del_str2 = list()
+        for each in a:
+            dict1[each] = 0
+        for each in b:
+            dict2[each] = 0
+        for k1,v1 in dict1.items():
+            for k2, v2 in dict2.items():
+                if k1 == k2:
+                    v1 = 1
+                if k2 == k1:
+                    v2 = 1
+                dict1[k1] = v1
+                dict2[k2] = v2
+        for k1,v1 in dict1.items():
+            if v1 == 1:
+                res1.append(k1)
+        str1 = ''.join((each) for each in res1 )
+        for k2,v2 in dict2.items():
+            if v2 == 1:
+                res2.append(k2)
+        str2 = ''.join((each) for each in res2 )
+        for k1,v1 in dict1.items():
+            if v1 == 0:
+                del_str1.append(k1)
+
+        del1 = ''.join((each) for each in del_str1 )
+        print("To delete from string 1:", del1)
+
+        for k2,v2 in dict2.items():
+            if v2 == 0:
+                del_str2.append(k2)
+
+        del2 = ''.join((each) for each in del_str2 )
+        print("To delete from string 2:",del2)

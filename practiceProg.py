@@ -310,3 +310,63 @@ class practiceProg():
 
         del2 = ''.join((each) for each in del_str2 )
         print("To delete from string 2:",del2)
+
+    def ransomNote(self, a,b, str_a, str_b):
+        split_str_a = str_a.split(" ")
+        split_str_b = str_b.split(" ")
+        print(split_str_a)
+        print(split_str_b)
+        for j, each2 in enumerate(split_str_b):
+            for i, each1 in enumerate(split_str_a):
+                if each1==each2:
+                    print("YES")
+                    break
+                else:
+                    print("NO")
+                    break
+
+
+        '''
+        dict_a = dict()    
+        dict_b = dict()
+
+        for each in split_str_a:
+            dict_a[each] = 0
+        for each in split_str_b:
+            dict_b[each] = 0
+        for ka, va in dict_a.items():
+            for kb, vb in dict_b.items():
+                if ka == kb:
+                    vb += 1
+                dict_b[kb] = vb
+        print(dict_b)
+        for kb, vb in dict_b.items():
+            if vb >=1:
+                pass
+            else:
+                pass
+        '''
+
+
+    def findIntk(self, arr, k):
+        new_dict= dict()
+        for i, each in enumerate(arr):
+            if i != 0:
+                new_dict[each] = 0
+        for key, value in new_dict.items():
+            if key == k:
+                value = 1
+            new_dict[key] = value
+        for k, v in new_dict.items():
+            if v == 1:
+                print("YES")
+                break
+            else:
+                print("NO")
+                break
+
+    def  oddNumbers(self, l, r):
+        liszt = range(l,r)
+        for i in liszt:
+            if i%2!=0:
+                print (i)

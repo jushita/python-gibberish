@@ -421,3 +421,34 @@ class practiceProg():
         for number in a:
             answer = answer ^ number
         print(answer ^ number)
+
+    def diagonal(self, a):
+        sum = 0
+        for i, each1 in enumerate(a):
+            for j, each2 in enumerate(each1):
+                sum = sum + abs(each1[i])
+                break
+        print(sum)
+
+    def hackerrank(self, a):
+        a = list(a)
+        b= "hackerrank"
+        dict_b = dict()
+        for each in b:
+            dict_b[each] = 0
+        for k, v in dict_b.items():
+            for i, each in enumerate(a):
+                if k == a[i]:
+                    v = v + 1
+                    dict_b[k] = v
+        res = all(value >= 1 for value in dict_b.values())
+        if res == True:
+            print("YES")
+        else:
+            print("NO")
+
+    def camelCase1(self, s):
+        s_lower = s.lower()
+        count = 0
+        d = dict()
+        diff = (set(s) - set(s_lower))

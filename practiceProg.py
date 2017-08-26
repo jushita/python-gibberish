@@ -1,5 +1,5 @@
 import itertools
-
+import re
 
 class practiceProg():
     #Write code to check a String is palindrome or not?
@@ -327,7 +327,7 @@ class practiceProg():
 
 
         '''
-        dict_a = dict()    
+        dict_a = dict()
         dict_b = dict()
 
         for each in split_str_a:
@@ -370,3 +370,54 @@ class practiceProg():
         for i in liszt:
             if i%2!=0:
                 print (i)
+
+    def upperCase(self, str_a):
+        '''
+        ab--> Ab, aB, AB, ab--> 00 01 10 11
+        abc--> Abc, aBc, abC, ABc, AbC, aBC, ABC, abc
+        2^2=4
+        2^3=8
+        2^4=16
+
+        '''
+        new_s = list()
+        bin_a = ["".join(seq) for seq in itertools.product("01", repeat=len(str_a))]
+        dict_a = dict()
+        print([(i) for i in bin_a if i =='00'])
+
+    def aveNameLen(self):
+        '''
+        Write a prog that will accept names as input compute avg length of names and output
+
+        '''
+        nlist = list()
+        with open("names.txt", "r") as file:
+            for eachLine in file:
+                eachLine = eachLine.rstrip("\n")
+                nlist.append(eachLine)
+        if len(nlist) == 0:
+            print("Please input some names!")
+        else:
+            nstring = " "
+            nstring = "".join(str(each) for each in nlist)
+            nstring = nstring.replace(" ", "")
+            nstring = re.sub('[^A-Za-z0-9]+', '', nstring)
+            print ("Average length of all the names of students in the class is:", len(nstring)/len(nlist))
+
+
+        """"
+        Define
+        prospect
+        usage
+        limitation
+        what else can be done
+        references
+        explain neural networks.. new buzz about it bla bla
+        """
+
+
+    def lonelyinteger(self, a):
+        answer = 0
+        for number in a:
+            answer = answer ^ number
+        print(answer ^ number)

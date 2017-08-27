@@ -468,3 +468,14 @@ class practiceProg():
             print("balanced")
         else:
             print("not balanced")
+    def realBalanced(self, s):
+        length = len(s)/2
+        firstpart, secondpart = s[:int(length)], s[int(length):]
+        secondpart = secondpart[::-1]
+        changedsecondpart = secondpart.replace("}", "{")
+        changedsecondpart = changedsecondpart.replace(")", "(")
+        changedsecondpart = changedsecondpart.replace("]", "[")
+        if firstpart == changedsecondpart:
+            print("balanced")
+        else:
+            print("not balanced")

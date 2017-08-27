@@ -450,5 +450,21 @@ class practiceProg():
     def camelCase1(self, s):
         s_lower = s.lower()
         count = 0
-        d = dict()
-        diff = (set(s) - set(s_lower))
+        uppers = [l for l in s if l.isupper()]
+        print(len(uppers)+1)
+
+    def balanceparenthesis(self, s):
+        '''
+        (){}[]
+        '''
+        val_1 = 0
+        val_2 = 0
+        for each in s:
+            if each == "(" or each == "{" or each == "[":
+                val_1 += 1
+            if each == ")" or each == "}" or each == "]":
+                val_2 += 1
+        if val_1 == val_2:
+            print("balanced")
+        else:
+            print("not balanced")

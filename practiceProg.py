@@ -580,3 +580,14 @@ bbbbbbbb
                     ans ="No"
         print(ans)
         '''
+    def super_reduced_string(self, s):
+        a = Counter(s)
+        result = []
+        s = " "
+        for k, v in a.items():
+            if v%2 == 1:
+                result.append(k)
+        s = "".join(result)
+        if not s:
+            print("Empty String")
+        print(s)

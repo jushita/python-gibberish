@@ -1,5 +1,7 @@
 import itertools
 import re
+from collections import Counter
+
 
 class practiceProg():
     #Write code to check a String is palindrome or not?
@@ -262,11 +264,8 @@ class practiceProg():
         print (res)
 
     def rotation(self, a, n):
-        d=list()
-        for i in range(1,a+1):
-            d.append(i)
-        str1 = ''.join(str(each) for each in d)
-        print(str1[n:]+ str1[:n])
+        a = list(a)
+        print(a[n:]+ a[:n])
 
     def anargrams(self, a, b):
         a = list(sorted(a))
@@ -479,3 +478,105 @@ class practiceProg():
             print("balanced")
         else:
             print("not balanced")
+
+    def mapCavity(self, arr, n):
+        for i in range(1, n-1):
+            for j in range(1, n-1):
+                if arr[i-1][j] != 'X' and int(arr[i-1][j]) < int(arr[i][j]) and \
+                    arr[i+1][j] != 'X' and int(arr[i+1][j]) < int(arr[i][j]) and \
+                    arr[i][j-1] != 'X' and int(arr[i][j-1]) < int(arr[i][j]) and \
+                    arr[i][j+1] != 'X' and int(arr[i][j+1]) < int(arr[i][j]):
+                        arr[i][j] = 'X'
+        n = input()
+        arr = []
+        for k in range(n):
+            line = list(raw_input())
+            arr.append(line)
+        mapCavity(arr, n)
+        for line in arr:
+            print (''.join(line))
+
+    def number_needed(self, a, b):
+        temp_dict_a = dict()
+        temp_dict_b = dict()
+        del_count = 0
+
+        for char in sorted(a):
+            if char in temp_dict_a:
+                temp_dict_a[char] += 1
+            else:
+                temp_dict_a[char] = 1
+
+        for char in sorted(b):
+            if char in temp_dict_b:
+                temp_dict_b[char] += 1
+            else:
+                temp_dict_b[char] = 1
+
+        if len(temp_dict_a) > len(temp_dict_b):
+            for key, value in temp_dict_a.items():
+                if key in temp_dict_b:
+                    del_count += abs(value - temp_dict_b[key])
+                else:
+                    del_count += value
+
+            for key, value in temp_dict_b.items():
+                if key not in temp_dict_a:
+                    del_count += value
+        else:
+            for key, value in temp_dict_b.items():
+                if key in temp_dict_a:
+                    del_count += abs(value - temp_dict_a[key])
+                else:
+                    del_count += value
+
+            for key, value in temp_dict_a.items():
+                if key not in temp_dict_b:
+                    del_count += value
+
+        print (del_count)
+        """"
+a = input().strip()
+b = input().strip()
+
+print(number_needed(a, b))
+aaaaa
+bbbbbbbb
+"""
+    def ransom_note(self, magazine, ransom):
+        a = (Counter(ransom.split(" ")))
+        b = (Counter(magazine.split(" ")))
+        print(b-a == {})
+        '''
+        dict_magazine = dict()
+        dict_ransom = dict()
+        ans = " "
+
+        for each in sorted(magazine.split(" ")):
+            if each in dict_magazine:
+                dict_magazine[each] += 1
+            else:
+                dict_magazine[each] = 1
+        print(dict_magazine)
+
+        for each in sorted(ransom.split(" ")):
+            if each in dict_ransom:
+                dict_ransom[each] += 1
+            else:
+                dict_ransom[each] = 1
+        print(dict_ransom)
+
+        for key, value in dict_ransom.items():
+            if key not in dict_magazine:
+                print("No")
+                break
+
+            if key in dict_magazine:
+                res = dict_magazine[key]-value
+                if res >= 0:
+                    ans = "Yes"
+
+                else:
+                    ans ="No"
+        print(ans)
+        '''

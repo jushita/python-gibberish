@@ -608,7 +608,9 @@ bbbbbbbb
         res = list()
         mres= list()
         mmres = ""
-        store_i = list()
+        space_index = list()
+        puntuation_index = dict()
+        capital_index = list()
         for i, each in enumerate(encryptedMessage):
             p = ord(encryptedMessage[i])-ord(decryptedMessage[i])
             fkey.append(p)
@@ -630,7 +632,7 @@ bbbbbbbb
         for each in pat:
             punct.append(ord(each))
         punct.append((ord(" ")))
-        #print(punct)
+
         stripped_message = re.sub('[^A-Za-z0-9]+', '', message)
         stripped_message = (stripped_message.lower())
 
@@ -641,7 +643,7 @@ bbbbbbbb
                 lmessage.append(rr)
             else:
                 lmessage.append(r)
-        print(lmessage)
+
         #adds the key to each letter indexes
         for i, a in enumerate(lmessage):
                 n.append((a - key[i % len(key)]))
@@ -653,14 +655,17 @@ bbbbbbbb
         for each in res:
             mres.append(chr(each))
         mmres = ''.join(mres)
-        print(mmres)
+
+        #finding and storing all spaces and puntuation and capitals.
         for i, each in enumerate(message):
             if each == " ":
-                store_i.append(i)
-        print(store_i)
-        print(mres)
-        X = ""
-        for i in store_i:
-            X = mmres[:i] + " " + mmres[i:]
-            break
-            print(X)
+                space_index.append(i)
+            if each.isupper():
+                capital_index.append(i)
+            for each1 in pat:
+                if each == each1:
+                    puntuation_index[each]=i
+
+        print(mmres) #this prints thequickbrownfoxjumpsoverthelazydog
+        #insert respective spaces, puntuation and capitals in mmres
+        

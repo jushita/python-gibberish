@@ -1,6 +1,8 @@
 import itertools
 import re
 from collections import Counter
+from itertools import cycle
+
 
 
 class practiceProg():
@@ -591,3 +593,74 @@ bbbbbbbb
         if not s:
             print("Empty String")
         print(s)
+    def test(self, message):
+        encryptedMessage = "Atvt hrqgse, Cnikg"
+        decryptedMessage = "Your friend, Alice"
+        encryptedMessage = re.sub('[^A-Za-z0-9]+', '', encryptedMessage)
+        decryptedMessage = re.sub('[^A-Za-z0-9]+', '', decryptedMessage)
+        #print(encryptedMessage)
+        fkey = list()
+        mkey = list()
+        key = list()
+        punct = list()
+        lmessage = list()
+        n = list()
+        res = list()
+        mres= list()
+        mmres = ""
+        store_i = list()
+        for i, each in enumerate(encryptedMessage):
+            p = ord(encryptedMessage[i])-ord(decryptedMessage[i])
+            fkey.append(p)
+
+        for each in fkey:
+            if each < 0:
+                each1 = each + 26
+                mkey.append(each1)
+            else: mkey.append(each)
+
+        i = mkey.index(0)
+        for j, each in enumerate(mkey):
+            while j>i and j<=mkey.index(0, i+1):
+                key.append(each)
+                break
+        #print(key)
+
+        pat = r'[.?\-",]+'
+        for each in pat:
+            punct.append(ord(each))
+        punct.append((ord(" ")))
+        #print(punct)
+        stripped_message = re.sub('[^A-Za-z0-9]+', '', message)
+        stripped_message = (stripped_message.lower())
+
+        for each in stripped_message:
+            r = ord(each)-97
+            if r< 0:
+                rr= r +26
+                lmessage.append(rr)
+            else:
+                lmessage.append(r)
+        print(lmessage)
+        #adds the key to each letter indexes
+        for i, a in enumerate(lmessage):
+                n.append((a - key[i % len(key)]))
+        for each in n:
+            if each < 0:
+                res.append(each+26+97)
+            else:
+                res.append(each+97)
+        for each in res:
+            mres.append(chr(each))
+        mmres = ''.join(mres)
+        print(mmres)
+        for i, each in enumerate(message):
+            if each == " ":
+                store_i.append(i)
+        print(store_i)
+        print(mres)
+        X = ""
+        for i in store_i:
+            X = mmres[:i] + " " + mmres[i:]
+            break
+            print(X)

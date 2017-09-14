@@ -2,6 +2,7 @@ import itertools
 import re
 from collections import Counter
 from itertools import cycle
+import time
 
 
 
@@ -594,78 +595,70 @@ bbbbbbbb
             print("Empty String")
         print(s)
     def test(self, message):
-        encryptedMessage = "Atvt hrqgse, Cnikg"
-        decryptedMessage = "Your friend, Alice"
-        encryptedMessage = re.sub('[^A-Za-z0-9]+', '', encryptedMessage)
-        decryptedMessage = re.sub('[^A-Za-z0-9]+', '', decryptedMessage)
+        encryptedMessage = re.sub('[^A-Za-z0-9]+', '', "Atvt hrqgse, Cnikg")
+        decryptedMessage = re.sub('[^A-Za-z0-9]+', '', "Your friend, Alice")
+
         #print(encryptedMessage)
         fkey = list()
         mkey = list()
         key = list()
-        punct = list()
         lmessage = list()
-        n = list()
-        res = list()
-        mres= list()
-        mmres = ""
-        space_index = list()
-        puntuation_index = dict()
-        capital_index = list()
+
+        # find difference between encrypted and decrypted letters
         for i, each in enumerate(encryptedMessage):
             p = ord(encryptedMessage[i])-ord(decryptedMessage[i])
             fkey.append(p)
 
-        for each in fkey:
+        # fix negative numbers
+        for index, each in enumerate(fkey):
             if each < 0:
-                each1 = each + 26
-                mkey.append(each1)
-            else: mkey.append(each)
+                fkey[index] = fkey[index] + 26
 
-        i = mkey.index(0)
-        for j, each in enumerate(mkey):
-            while j>i and j<=mkey.index(0, i+1):
+        #find real key
+
+        i = fkey.index(0)
+        for j, each in enumerate(fkey):
+            while j>i and j<=fkey.index(0, i+1):
                 key.append(each)
                 break
-        #print(key)
 
-        pat = r'[.?\-",]+'
-        for each in pat:
-            punct.append(ord(each))
-        punct.append((ord(" ")))
+        #split message
+        temp_msg_list = list(message)
+        print(temp_msg_list)
 
-        stripped_message = re.sub('[^A-Za-z0-9]+', '', message)
-        stripped_message = (stripped_message.lower())
+        counter = 0
+        is_upper = False
 
-        for each in stripped_message:
-            r = ord(each)-97
-            if r< 0:
-                rr= r +26
-                lmessage.append(rr)
-            else:
-                lmessage.append(r)
+        for index, char in enumerate(temp_msg_list):
+            if counter >= len(key):
+                counter = 0
 
-        #adds the key to each letter indexes
-        for i, a in enumerate(lmessage):
-                n.append((a - key[i % len(key)]))
-        for each in n:
-            if each < 0:
-                res.append(each+26+97)
-            else:
-                res.append(each+97)
-        for each in res:
-            mres.append(chr(each))
-        mmres = ''.join(mres)
+            if re.match(r'[!.?\-",]+', char) or char == " ":
+                lmessage.append(char)
+                continue
 
-        #finding and storing all spaces and puntuation and capitals.
-        for i, each in enumerate(message):
-            if each == " ":
-                space_index.append(i)
-            if each.isupper():
-                capital_index.append(i)
-            for each1 in pat:
-                if each == each1:
-                    puntuation_index[each]=i
+            hold = char
+            if char.isupper():
+                hold = char.lower()
+                is_upper = True
 
-        print(mmres) #this prints thequickbrownfoxjumpsoverthelazydog
-        #insert respective spaces, puntuation and capitals in mmres
-        
+            hold = ord(hold) - key[counter]
+
+            if hold < 97:
+                hold += 26
+
+            hold = chr(hold)
+
+            if is_upper:
+                is_upper = False
+                hold = hold.upper()
+
+            lmessage.append(hold)
+
+            counter += 1
+
+        return("".join(lmessage))
+
+    def virus():
+        while True:
+            print("You're crazy!")

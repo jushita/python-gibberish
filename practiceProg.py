@@ -1,6 +1,6 @@
 import itertools
 import re
-from collections import Counter
+from collections import Counter, OrderedDict
 from itertools import cycle
 import time
 
@@ -294,16 +294,16 @@ class practiceProg():
         for k1,v1 in dict1.items():
             if v1 == 1:
                 res1.append(k1)
-        str1 = ''.join((each) for each in res1 )
+        str1 = ''.join((each) for each in res1)
         for k2,v2 in dict2.items():
             if v2 == 1:
                 res2.append(k2)
-        str2 = ''.join((each) for each in res2 )
+        str2 = ''.join((each) for each in res2)
         for k1,v1 in dict1.items():
             if v1 == 0:
                 del_str1.append(k1)
 
-        del1 = ''.join((each) for each in del_str1 )
+        del1 = ''.join((each) for each in del_str1)
         print("To delete from string 1:", del1)
 
         for k2,v2 in dict2.items():
@@ -659,6 +659,24 @@ bbbbbbbb
 
         return("".join(lmessage))
 
-    def virus():
-        while True:
-            print("You're crazy!")
+    def virus(self, a0,b0,c0):
+        matrix = [a0][b0][c0]
+        print(matrix)
+
+    def createStr(self, a):
+        dictionary = ["bed","okay", "bath", "and", "beyond", "this", "is"]
+        res = list()
+        for each in dictionary:
+            if each in a:
+                res.append(each)
+        print(" ".join(each for each in res))
+    def deleteWords(self, a, b):
+        a = a.split(" ")
+        b = b.split(" ")
+        result = " "
+        _list = list()
+        Res = set(a)-set(b)
+        for each in Res:
+            _list.append(each)
+        result = ' '.join(_list)
+        print(result)

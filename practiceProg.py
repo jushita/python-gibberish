@@ -670,6 +670,7 @@ bbbbbbbb
             if each in a:
                 res.append(each)
         print(" ".join(each for each in res))
+
     def deleteWords(self, a, b):
         a = a.split(" ")
         b = b.split(" ")
@@ -680,3 +681,15 @@ bbbbbbbb
             _list.append(each)
         result = ' '.join(_list)
         print(result)
+
+    def removeOcurance(self, a, b):
+        a = a.split(" ")
+        b = b.split(" ")
+        for i, each in enumerate(a):
+            for j, each2 in enumerate(b):
+                if a[i] == b[j]:
+                    a.remove(a[i])
+                    b.remove(b[j])
+                    break
+            continue
+        print(a)

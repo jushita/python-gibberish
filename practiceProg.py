@@ -700,3 +700,22 @@ bbbbbbbb
 
     def shortestSubstring(self, a):
         a = list(a)
+        print(a)
+        for i, each in enumerate(a):
+            if a[i] != a[i-1]:
+                pass
+
+    def consecutiveCount(self, word):
+        count=1
+        length=""
+        for i in range(1,len(word)):
+            if word[i-1]==word[i]:
+               count+=1
+            else :
+                length += word[i-1]+str(count)
+                count=1
+        length += (word[i]+str(count))
+        print (length)
+
+    def consecutiveCount1(self, a):
+        

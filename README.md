@@ -20,20 +20,29 @@ Includes problems for interview practices. Collected from Codefights, Javarevist
 10. How to find all pairs in array of integers whose sum is equal to given number?
 11. How to remove duplicate elements from array
 12. How to find top two maximum number in array?
-13. Find duplicate in an array. example: [2,3,3,4,5,2] answer will be 3. because the second index of 3 is less than the second index of 2.
+13. Find duplicate in an array.
+```
+Input:  [2,3,3,4,5,2]
+Output: 3
+Explanation: Because the second index of 3 is less than the second index of 2.
+```
 14. Reverse a string.
 15. Check if number is binary or not.
 16. the sky is blue --> blue is sky
-17. Resverse a string
+17. Reverse a string
 18. Rotate a string
-19. Given two strings delete all chanractrs to make it anargrams.
-20. Ransom Note (Hackerrank Cracking the coding interview)
+19. Given two strings delete all characters to make it anagrams.
+20. Ransom Note (Hacker rank Cracking the coding interview)
 21. Find all the index where you can find the target element in the given string
 22. Find odd numbers
-23. Write a prog that will accept names as input compute avg length of names and output
-24. Find the lonley Integers
+23. Write a program that will accept names as input compute average length of names and output
+24. Find the lonely Integers
 25. Some hackerrank problem
-26. Find how many words there are in a camel cased string. Example: input :: myNameIsJushita; output :: 4
+26. Find how many words there are in a camel cased string.
+```
+Input: myNameIsJushita
+Output: 4
+```
 27. Find balanced parenthesis
 28. Map Cavity problem
 29. Twitter Interview Online Test
@@ -44,19 +53,29 @@ Includes problems for interview practices. Collected from Codefights, Javarevist
     4. If a non-alphabetical character is encountered, leave it as it is and don’t move to the next digit in the key.
     5. Characters should maintain their upper or lowercase orientation after rotation.
     Here is an example message and its encrypted output using Alice’s algorithm:
+    ```
     Original message: Hi, this is an example
     Example Key: 4071321
     Encrypted message: Li, ailu jw facntll
     Where H was rotated forward 4 letters to L, i rotated 0 to i, t rotated forward 7 letters to a, etc.
+    ```
     Satisfied with the security of her algorithm, Alice tweets the following ciphertext to Bob:
     Otjfvknou kskgnl, K mbxg iurtsvcnb ksgq hoz atv. Vje xcxtyqrl vt ujg smewfv vrmcxvtg rwqr ju vhm ytsf elwepuqyez. -Atvt hrqgse, Cnikg
     Uh oh! Unfortunately for Alice and Bob, you are “Eve”, the world’s greatest hacker. You’ve been intercepting Alice’s messages for some time now, and know she always ends her messages with the signature “-Your friend, Alice”. You job is now as follows:
     Determine the key Alice is using.
     Using this key, write a function to decrypt any future communications from Alice. This method should take the encrypted string as an input and return the original unencrypted string.
-30. Given a string split it to individual words. Example: input :: bedbathandbeyond output :: bed bath and beyond
+30. Given a string split it to individual words.
+```
+Input: bedbathandbeyond
+Output: bed bath and beyond
+```
 31. Remove occurance from a string
 32. Find the shortest substring
-33. Count consecutive characters. Example: input :: aabbbaaacd output: a2b3a3c1d1
+33. Count consecutive characters.
+```
+Input: aabbbaaacd 
+output: a2b3a3c1d1
+```
 34. Write a program that will accept names as input and compute average length of names as output
 
 ## leetcode.py
@@ -66,12 +85,12 @@ Problems from leetcode
 ### List of Problems
 
 1. Given an array of integers, return indices of the two numbers such that they add up to a specific target. You may assume that each input would have exactly one solution, and you may not use the same element twice.
-'''
+```
 Given nums = [2, 7, 11, 15], target = 9,
 
 Because nums[0] + nums[1] = 2 + 7 = 9,
 return [0, 1].
-'''
+```
 ## ctci.py
 
 Cracking the Coding Interview Pythonic Solutions

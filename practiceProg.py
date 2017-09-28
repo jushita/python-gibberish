@@ -1,7 +1,7 @@
 import itertools
 import re
 from collections import Counter, OrderedDict
-from itertools import cycle
+from itertools import cycle, groupby
 import time
 
 
@@ -718,4 +718,12 @@ bbbbbbbb
         print (length)
 
     def consecutiveCount1(self, a):
-        
+        groups = groupby(a)
+        result = [(label, sum(1 for each in group)) for label, group in groups]
+        print (result)
+
+    def twoSum(self, nums, target):
+        for i in range(len(nums)-1):
+            for j in range(i+1, len(nums)):
+                if nums[i] + nums[j] == target:
+                    print(nums[i], nums[j])

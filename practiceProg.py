@@ -34,7 +34,7 @@ class practiceProg():
         newString=''.join(newString)
         print(newString)
 
-#How to find first non repeated character of a given String?
+    #How to find first non repeated character of a given String?
 
     def nonRepChar(self, string):
         string = string.lower()
@@ -57,7 +57,7 @@ class practiceProg():
                 print (key)
                 break
 
-#How to count occurrence of a given character in a String?
+    #How to count occurrence of a given character in a String?
 
     def countOcc(self, string):
         string = string.lower()
@@ -77,7 +77,7 @@ class practiceProg():
         for key, value in dict_string.items():
             print (key, value)
 
-#How to check if two String are Anagram?
+    #How to check if two String are Anagram?
 
     def anargram(self, string1, string2):
         string1 = string1.lower()
@@ -93,7 +93,7 @@ class practiceProg():
         else:
             print ("Not Anagram")
 
-#In an array 1-100 numbers are stored, one number is missing how do you find it?
+    #In an array 1-100 numbers are stored, one number is missing how do you find it?
 
     def findNum(self, given):
         sumOfnums = sum(range(1,11))
@@ -106,7 +106,7 @@ class practiceProg():
 
         print(result)
 
-#In an array 1-100 multiple numbers are duplicates, how do you find it?
+    #In an array 1-100 multiple numbers are duplicates, how do you find it?
 
     def countDupli(self, array):
         d = dict()
@@ -120,7 +120,7 @@ class practiceProg():
             if value == 2:
                 print(key)
 
-#Given two arrays, 1,2,3,4,5 and 2,3,1,0,5 find which number is not present in the second array.
+    #Given two arrays, 1,2,3,4,5 and 2,3,1,0,5 find which number is not present in the second array.
 
     def matchArray(self, array1,array2):
         d1 = dict()
@@ -140,12 +140,12 @@ class practiceProg():
                 print(key1)
 
 
-# How do you find second highest number in an integer array?
+    # How do you find second highest number in an integer array?
     def secondHighest(self, array):
         array = sorted(array)
         print (array[len(array)-2])
 
-#How to find all pairs in array of integers whose sum is equal to given number?
+    #How to find all pairs in array of integers whose sum is equal to given number?
     def findPairEqualToSum(self, array, num):
         if not array:
             print ("ERROR")
@@ -167,7 +167,7 @@ class practiceProg():
             #res2=''.join("\n")
         print (res2)
 
-# How to remove duplicate elements from array
+    # How to remove duplicate elements from array
     def removeDupli(self, array):
         result_array = list()
         dict_array = dict()
@@ -187,7 +187,7 @@ class practiceProg():
 
         print(smallest, largest)
 
-#How to find top two maximum number in array?
+    #How to find top two maximum number in array?
 
     def findTwoLargestNums(self, array):
         array = sorted(array)
@@ -197,9 +197,9 @@ class practiceProg():
             largest = array[len(array)-1]
 
         print(smallest, largest)
-##Find duplicate in an array
-##example: [2,3,3,4,5,2]
-##answer will be 3. because the second index of 3 is less than the second index of 2.
+    ##Find duplicate in an array
+    ##example: [2,3,3,4,5,2]
+    ##answer will be 3. because the second index of 3 is less than the second index of 2.
 
     def firstDupliLowestIndex(self, a):
         new_dict = dict()
@@ -225,12 +225,12 @@ class practiceProg():
         if not listOfindex:
             print("-1")
 
-#reverse a string
+    #reverse a string
     def revInt(self, a):
         a = str (a)
         print (a[::-1])
 
-#check if number is binary or not
+    #check if number is binary or not
     def checkBin(self, a):
         a = str (a)
         a = list (a)
@@ -269,7 +269,7 @@ class practiceProg():
     def rotation(self, a, n):
         a = list(a)
         print(a[n:]+ a[:n])
-
+    #Given two strings delete all chanractrs to make it anargrams.
     def anargrams(self, a, b):
         a = list(sorted(a))
         b = list(sorted(b))
@@ -349,7 +349,7 @@ class practiceProg():
                 pass
         '''
 
-
+    # Find all the index where you can find the target element in the given string
     def findIntk(self, arr, k):
         new_dict= dict()
         for i, each in enumerate(arr):
@@ -721,9 +721,37 @@ bbbbbbbb
         groups = groupby(a)
         result = [(label, sum(1 for each in group)) for label, group in groups]
         print (result)
+    def aveNameLen(self):
+        '''
+        Write a program that will accept names as input and compute average length of names as output
 
-    def twoSum(self, nums, target):
-        for i in range(len(nums)-1):
-            for j in range(i+1, len(nums)):
-                if nums[i] + nums[j] == target:
-                    print(nums[i], nums[j])
+        '''
+        #initialize an empty list to store names from file
+        nlist = list()
+        #open file containing list and storing in nlist as a list
+        with open("names.txt", "r") as file:
+            for eachLine in file:
+                eachLine = eachLine.rstrip("\n")
+                nlist.append(eachLine)
+        #removing number values
+        nlist = [item for item in nlist if not item.isdigit()]
+        #if input file is empty
+        if len(nlist) == 0:
+            print("Please input some names!")
+
+        else:
+            nstring = " "
+            #joining all names as a long string
+            nstring = "".join(str(each) for each in nlist)
+            #removing spaces between names
+            nstring = nstring.replace(" ", "")
+            #removing special characters
+            nstring = re.sub('[^A-Za-z0-9]+', '', nstring)
+            #removing numbers
+            nstring = re.sub(r'\d+', '', nstring)
+            #if invalid iput is given
+            if len(nstring) == 0:
+                print("Oops! Enter valid names please!")
+            else:
+                #printing result
+                print ("Average length of all the names of students in the class is:", len(nstring)/len(nlist))

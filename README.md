@@ -73,7 +73,7 @@ Output: bed bath and beyond
 32. Find the shortest substring
 33. Count consecutive characters.
 ```
-Input: aabbbaaacd 
+Input: aabbbaaacd
 output: a2b3a3c1d1
 ```
 34. Write a program that will accept names as input and compute average length of names as output
@@ -97,3 +97,4 @@ Cracking the Coding Interview Pythonic Solutions
 
 ### Chapter 1: Array and String
 1.1 Implement an algorithm to determine if a string has all unique characters. What if you can not use additional data structures?
+1.2 Write code to reverse a C-Style String. (C-String means that “abcd” is represented as five characters, including the null character.)

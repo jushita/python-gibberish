@@ -9,3 +9,10 @@ class Ctci():
             uchars.add(c)
         print(uchars)
         print(res)
+    #Write code to reverse a C-Style String. (C-String means that “abcd” is represented as five characters, including the null character.)
+    def revCstring(self, a):
+        #this question is not suitable to be implemented in python
+        a = a[:-1]
+        a = a[::-1]
+        print(a+"0")
+    

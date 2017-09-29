@@ -6,3 +6,4 @@ ctcisolution = Ctci ()
 
 #solution.twoSum([3,2,4,5,6], 11)
 ctcisolution.uniqueChar("abcdeffd")
+ctcisolution.revCstring("abcd0")

@@ -22,6 +22,8 @@ class Ctci():
     #FOLLOW UP
     #Write the test cases for this method.
     def removeDuplicate(self, a):
+        if not a:
+            print("Empty string.")
         res_a = sorted(set(a))
         result = ""
         for each in res_a:

@@ -15,4 +15,15 @@ class Ctci():
         a = a[:-1]
         a = a[::-1]
         print(a+"0")
-    
+
+    #Design an algorithm and write code to remove the duplicate characters
+    #in a string without using any additional buffer. note: One or two additional variables are fine.
+    #An extra copy of the array is not.
+    #FOLLOW UP
+    #Write the test cases for this method.
+    def removeDuplicate(self, a):
+        res_a = sorted(set(a))
+        result = ""
+        for each in res_a:
+            result += each
+        print (result)

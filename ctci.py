@@ -23,9 +23,20 @@ class Ctci():
     #Write the test cases for this method.
     def removeDuplicate(self, a):
         if not a:
-            print("Empty string.")
+            print("Empty string")
         res_a = sorted(set(a))
         result = ""
         for each in res_a:
             result += each
         print (result)
+
+    #Write a method to decide if two strings are anagrams or not.
+    def anargrams(self, a, b):
+        if not a:
+            print("Invalid Input")
+        elif not b:
+            print("Invalid Input")
+        elif sorted(a)==sorted(b):
+            print("anagram")
+        else:
+            print("not anargram")

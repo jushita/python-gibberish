@@ -102,3 +102,4 @@ Cracking the Coding Interview Pythonic Solutions
 FOLLOW UP
 Write the test cases for this method.
 1.4 Write a method to decide if two strings are anagrams or not.
+1.5 Write a method to replace all spaces in a string with ‘%20’.

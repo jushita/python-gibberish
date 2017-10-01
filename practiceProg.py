@@ -755,3 +755,13 @@ bbbbbbbb
             else:
                 #printing result
                 print ("Average length of all the names of students in the class is:", len(nstring)/len(nlist))
+
+
+    def reverseAlgo(self, a):
+        a = list(a)
+        result = ""
+        if not a:
+            print("Error")
+        while len(a) != 0:
+            result += a.pop()
+        print(result)

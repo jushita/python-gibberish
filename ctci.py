@@ -54,3 +54,4 @@ class Ctci():
             else:
                 result += each
         print(result)
+    

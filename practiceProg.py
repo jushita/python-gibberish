@@ -756,7 +756,7 @@ bbbbbbbb
                 #printing result
                 print ("Average length of all the names of students in the class is:", len(nstring)/len(nlist))
 
-
+    #write an algorithm to reverse a string not in-built one
     def reverseAlgo(self, a):
         a = list(a)
         result = ""

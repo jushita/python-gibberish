@@ -41,6 +41,7 @@ class Ctci():
         else:
             print("not anargram")
 
+    #Write a method to replace all spaces in a string with ‘%20’.
     def removeSpaces(self, a):
         result = ""
         #using in built function
@@ -54,4 +55,3 @@ class Ctci():
             else:
                 result += each
         print(result)
-    

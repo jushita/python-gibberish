@@ -40,3 +40,17 @@ class Ctci():
             print("anagram")
         else:
             print("not anargram")
+
+    def removeSpaces(self, a):
+        result = ""
+        #using in built function
+
+        #print(a.replace(" ", "%20"))
+
+        #not using in built function
+        for i, each in enumerate(a):
+            if ord(each) == ord(" "):
+                result += '%20'
+            else:
+                result += each
+        print(result)

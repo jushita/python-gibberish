@@ -21,3 +21,15 @@ class linked_list:
             total += 1
             cur = cur.next
         return total
+
+    def display(self):
+        elements = list()
+        cur = self.head
+        while cur.next != None:
+            cur = cur.next
+            elements.append(cur.data)
+        print(elements)
+
+mylist = linked_list()
+
+mylist.display()

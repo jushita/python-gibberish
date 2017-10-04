@@ -30,6 +30,28 @@ class linked_list:
             elements.append(cur.data)
         print(elements)
 
+    def get(self, index):
+        if index >= self.length():
+            print("Erroe: 'Get' index out of range")
+            return None
+        cur_index = 0
+        cur = self.head
+        while True:
+            cur = cur.next
+            if cur_index == index:
+                return cur.data
+            cur_index += 1
+
+
+
+
+
 mylist = linked_list()
 
+mylist.append(1)
+mylist.append(2)
+mylist.append(3)
+mylist.append(4)
+
 mylist.display()
+print("element at 2nd index: %d" %mylist.get(2))

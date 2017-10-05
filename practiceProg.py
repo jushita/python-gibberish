@@ -765,3 +765,14 @@ bbbbbbbb
         while len(a) != 0:
             result += a.pop()
         print(result)
+
+    #Create a diamond
+    def diamond(self, a):
+        for each in range(int((a-1)/2), 0, -1): #if a= 7; you want the first half to have 7-1/2=3 lines
+            space = each
+            star = a - 2*space #
+            print(" "*space +"*"*star+" "*space )
+        for each in range(int((a-1)/2)+1): #if a = 7; you want the second have to have 7-1/2 + 1 lines
+            space = each
+            star = a - 2*space
+            print(" "*space +"*"*star+" "*space )

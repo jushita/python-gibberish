@@ -770,9 +770,66 @@ bbbbbbbb
     def diamond(self, a):
         for each in range(int((a-1)/2), 0, -1): #if a= 7; you want the first half to have 7-1/2=3 lines
             space = each
-            star = a - 2*space #
+            star = a - 2*space
             print(" "*space +"*"*star+" "*space )
         for each in range(int((a-1)/2)+1): #if a = 7; you want the second have to have 7-1/2 + 1 lines
             space = each
             star = a - 2*space
             print(" "*space +"*"*star+" "*space )
+
+    def fibonacci(self, a):
+        first = 0
+        second = 1
+        fseries = [first, second]
+        for each in range(a):
+            sum = first + second
+            first = second
+            second = sum
+            fseries.append(sum)
+        print(fseries)
+
+    def multiplicationTable(self, timestable, upto):
+        for each in range(0, upto+1):
+            print(str(timestable) + " X " + str(each) + " = " + str(timestable*each))
+            print("%d X %d = %d" % (timestable, each, timestable*each))
+
+    #Given two arrays, 1,2,3,4,5 and 2,3,1,0,5 find which number is not present in the second array.
+    def absent(self, a,b):
+        print(set(a)-set(b))
+
+    #find the longest pallindrom substring
+    def longestPal(self, s):
+    # Declare local variable for the length of s.
+        l = len(s)
+        list_s = list()
+        _reverse = list()
+        # Here I chose range over xrange for python version compatibility.
+        for end in range(l,0,-1):
+            for i in range(l-end+1):
+                list_s.append(s[i:i+end] )
+        #print(list_s)
+        for each in list_s:
+            _reverse.append(each[::-1])
+        #print(_reverse)
+        for i, each in enumerate(list_s):
+            if each == _reverse[i]:
+                print(each)
+                break
+
+    def isBin(self, a):
+        print(all((k == '0' or k == '1') for k in str(a)))
+
+    def diaPrac(self, a):
+        for i in range(int((a-1)/2),0,-1):
+            spaces = i
+            stars = a - 2*spaces
+            print(" "*spaces + str(i*2+1)*stars + " "*spaces)
+        for i in range(int((a-1)/2)+1):
+            spaces = i
+            stars = a - 2*spaces
+            print(" "*spaces + str(i*2+1)*stars + " "*spaces)
+
+    def Fibo(self, n):
+        if n == 0: return(0)
+        elif n == 1: return(1)
+        else: return( Fibo(n-1)+Fibo(n-2))

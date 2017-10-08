@@ -69,7 +69,7 @@ Output: 4
 Input: bedbathandbeyond
 Output: bed bath and beyond
 ```
-31. Remove occurance from a string
+31. Remove occurrence from a string
 32. Find the shortest substring
 33. Count consecutive characters.
 ```

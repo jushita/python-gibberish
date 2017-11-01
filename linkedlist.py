@@ -57,6 +57,8 @@ class linked_list:
             cur_idx += 1
 
 
+
+
 mylist = linked_list()
 
 mylist.append(1)
@@ -64,6 +66,4 @@ mylist.append(2)
 mylist.append(3)
 mylist.append(4)
 
-mylist.display()
-mylist.erase(0)
 mylist.display()

@@ -455,33 +455,6 @@ class practiceProg():
         uppers = [l for l in s if l.isupper()]
         print(len(uppers)+1)
 
-    def balanceparenthesis(self, s):
-        '''
-        (){}[]
-        '''
-        val_1 = 0
-        val_2 = 0
-        for each in s:
-            if each == "(" or each == "{" or each == "[":
-                val_1 += 1
-            if each == ")" or each == "}" or each == "]":
-                val_2 += 1
-        if val_1 == val_2:
-            print("balanced")
-        else:
-            print("not balanced")
-    def realBalanced(self, s):
-        length = len(s)/2
-        firstpart, secondpart = s[:int(length)], s[int(length):]
-        secondpart = secondpart[::-1]
-        changedsecondpart = secondpart.replace("}", "{")
-        changedsecondpart = changedsecondpart.replace(")", "(")
-        changedsecondpart = changedsecondpart.replace("]", "[")
-        if firstpart == changedsecondpart:
-            print("balanced")
-        else:
-            print("not balanced")
-
     def mapCavity(self, arr, n):
         for i in range(1, n-1):
             for j in range(1, n-1):
@@ -803,18 +776,20 @@ bbbbbbbb
         l = len(s)
         list_s = list()
         _reverse = list()
+        count = 0
         # Here I chose range over xrange for python version compatibility.
         for end in range(l,0,-1):
             for i in range(l-end+1):
                 list_s.append(s[i:i+end] )
-        #print(list_s)
+        print(list_s)
         for each in list_s:
             _reverse.append(each[::-1])
         #print(_reverse)
         for i, each in enumerate(list_s):
             if each == _reverse[i]:
-                print(each)
-                break
+                count += 1
+        print(count)
+
 
     def isBin(self, a):
         print(all((k == '0' or k == '1') for k in str(a)))
@@ -833,3 +808,12 @@ bbbbbbbb
         if n == 0: return(0)
         elif n == 1: return(1)
         else: return( Fibo(n-1)+Fibo(n-2))
+
+    def twoStringsPerm(self, a, b):
+        res = "YES"
+        a = sorted(a)
+        b = sorted(b)
+        if a == b:
+            print("YES")
+        else:
+            print("NO")

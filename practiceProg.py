@@ -788,8 +788,8 @@ bbbbbbbb
         for i, each in enumerate(list_s):
             if each == _reverse[i]:
                 count += 1
-        print(count)
-
+        #print(count)
+'''
 
     def isBin(self, a):
         print(all((k == '0' or k == '1') for k in str(a)))
@@ -817,3 +817,4 @@ bbbbbbbb
             print("YES")
         else:
             print("NO")
+'''
